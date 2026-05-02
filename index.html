@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>POMBAGIRAS.COM | Conhecimento Sagrado & Arte Visceral</title>
+    <meta name="description" content="O olho que tudo vê nas encruzilhadas do mundo. Desmistificando o feminino proibido através da tecnologia e da ancestralidade. Alexia Melusine revela o que as sombras escondem. Laroyê.">
+    
+    <!-- Open Graph / Redes Sociais -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pombagiras.com/">
+    <meta property="og:title" content="POMBAGIRAS.COM | Conhecimento Sagrado & Arte Visceral">
+    <meta property="og:description" content="O olho que tudo vê nas encruzilhadas do mundo. Desmistificando o feminino proibido através da tecnologia e da ancestralidade. Alexia Melusine revela o que as sombras escondem. Laroyê.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/pombagiras/melusine-oficial/refs/heads/main/Ale%20Ultra%20(1).png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://pombagiras.com/">
+    <meta name="twitter:title" content="POMBAGIRAS.COM | Conhecimento Sagrado & Arte Visceral">
+    <meta name="twitter:description" content="O olho que tudo vê nas encruzilhadas do mundo. Desmistificando o feminino proibido através da tecnologia e da ancestralidade. Laroyê.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/pombagiras/melusine-oficial/refs/heads/main/Ale%20Ultra%20(1).png">
+    
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/pombagiras/melusine/main/Al%C3%AA%20(3)%20(3)%20(1).png">
+    <meta name="theme-color" content="#030303">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050505;
+            background-image: radial-gradient(circle at 25% 40%, rgba(45, 0, 45, 0.3) 0%, #030000 95%);
+            color: #e6d5e6;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Glassmorphism base */
+        .glass-card, section, .modal-content, .faq-item, .glossary-item, .bibliografia-item {
+            background: rgba(10, 5, 12, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            border: 1px solid rgba(180, 40, 80, 0.35);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        /* Tipografia */
+        h1, h2, h3, .serif-title {
+            font-family: 'Playfair Display', 'Times New Roman', Georgia, serif;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-left: 6px solid #b91c4c;
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* Mobile First */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero img {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 2rem;
+            filter: grayscale(0.6) brightness(0.75) contrast(1.2);
+            transition: filter 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero img:hover {
+            filter: grayscale(0) brightness(1) contrast(1);
+        }
+
+        .close-eyes {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 2rem;
+            margin: 2rem 0;
+            filter: grayscale(0.5) brightness(0.8);
+            transition: 0.6s;
+        }
+
+        .close-eyes:hover {
+            filter: grayscale(0) brightness(1);
+        }
+
+        /* Grid de Pombagiras */
+        .grid-pombas {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .pomba-card {
+            background: rgba(0,0,0,0.65);
+            backdrop-filter: blur(8px);
+            border-radius: 1.8rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid #3e1a2a;
+        }
+
+        .pomba-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -10px rgba(185, 28, 76, 0.3);
+            border-color: #b91c4c;
+        }
+
+        .pomba-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            filter: grayscale(0.8) brightness(0.7) contrast(1.1);
+            transition: filter 0.6s ease;
+        }
+
+        .pomba-card:hover img {
+            filter: grayscale(0) brightness(1) contrast(1);
+        }
+
+        .card-info {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .card-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #f2c4d4;
+        }
+
+        /* Redes minimalistas */
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .social-icon {
+            background: rgba(25, 10, 20, 0.8);
+            backdrop-filter: blur(6px);
+            padding: 0.7rem 1.2rem;
+            border-radius: 3rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #e6c8d4;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 1px solid #6b2c44;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .social-icon:hover {
+            background: #b91c4c;
+            color: white;
+            border-color: white;
+            transform: scale(1.02);
+        }
+
+        /* FAQ, Glossário, Bibliografia */
+        .faq-grid, .glossary-grid, .bibliografia-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .faq-item, .glossary-item, .bibliografia-item {
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #ffb7c5;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+        .faq-answer {
+            margin-top: 0.8rem;
+            padding-left: 0.5rem;
+            border-left: 2px solid #b91c4c;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            max-width: 500px;
+            width: 90%;
+            padding: 2rem;
+            position: relative;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #b91c4c;
+        }
+        footer {
+            margin-top: 4rem;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-top: 1px solid #2e1a24;
+            font-size: 0.85rem;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+            margin: 1.2rem 0;
+        }
+        .btn {
+            background: #b91c4c;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            color: white;
+        }
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+            h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- BANNER principal -->
+    <div class="hero">
+        <img src="https://raw.githubusercontent.com/pombagiras/melusine-oficial/refs/heads/main/Ale%20Ultra%20(1).png" alt="Pombagiras Banner Alexia">
+        <h1 style="font-size: 2.2rem; margin-top: 0.5rem;">⚘ POMBAGIRAS ⚘</h1>
+        <p style="font-style: italic; max-width: 700px;">O olho que tudo vê nas encruzilhadas do mundo. Desmistificando o feminino proibido através da tecnologia e da ancestralidade.</p>
+    </div>
+    
+    <!-- Segunda imagem close olhos -->
+    <img class="close-eyes" src="https://raw.githubusercontent.com/pombagiras/melusine-oficial/refs/heads/main/Cavpa%20(4).jpeg" alt="Olhos profundos">
+    
+    <!-- SEÇÃO DAS 24 POMBAGIRAS (geradas dinamicamente) -->
+    <h2>🌹 Pombagiras do Reino das Encruzilhas</h2>
+    <div id="pombagirasGrid" class="grid-pombas"></div>
+    
+    <!-- SEÇÃO CURIOSIDADES -->
+    <h2>📜 Curiosidades sobre as Pombagiras</h2>
+    <div class="glass-card" style="padding: 1.8rem; margin-bottom: 2rem;">
+        <p>⭐ <strong>Pombagira não é "diaba"</strong> – Na Umbanda, ela é guardiã dos ciclos femininos, das paixões e da magia das encruzilhadas.</p>
+        <p>⭐ <strong>Arquétipos múltiplos</strong>: Cada pombagira carrega uma energia única (tristeza, alegria, fogo, águas profundas), reflexo das muitas faces da mulher guerreira.</p>
+        <p>⭐ <strong>Cores e oferendas</strong>: Velas vermelhas, rosas, champagne e cigarro são símbolos de firmeza espiritual; pomba-gira atua na descarrego e transformação.</p>
+        <p>⭐ <strong>Maria Padilha e as 7 saias</strong>: Duas das mais conhecidas guardiãs, representam poder feminino e sensualidade sagrada.</p>
+        <p>⭐ <strong>No sincretismo</strong>: algumas entidades são cultuadas como santas ou figuras folclóricas, mas na Quimbanda possuem sua força independente.</p>
+    </div>
+    
+    <!-- PERGUNTAS E RESPOSTAS -->
+    <h2>❓ Perguntas & Respostas sobre Pombagiras</h2>
+    <div class="faq-grid" id="faqContainer"></div>
+    
+    <!-- GLOSSÁRIO DE TERMOS SAGRADOS (Umbanda e Quimbanda) -->
+    <h2>📖 Glossário de Termos Sagrados</h2>
+    <div class="glossary-grid" id="glossaryContainer"></div>
+    
+    <!-- BIBLIOGRAFIA RECOMENDADA (livros, filmes, documentários) -->
+    <h2>📚 Bibliografia Recomendada</h2>
+    <div class="bibliografia-grid" id="bibliografiaContainer"></div>
+    
+    <!-- REDES SOCIAIS MINIMALISTAS  -->
+    <h2>🌐 Encruzilhadas Digitais</h2>
+    <div class="social-links" id="socialLinks"></div>
+    
+    <!-- rodapé profissional -->
+    <footer>
+        <div class="footer-links">
+            <a href="#" style="color:#e6b3c2;">Selo Pombagiras.com</a>
+            <a href="#" style="color:#e6b3c2;">Direitos Ancestrais</a>
+            <a href="#" style="color:#e6b3c2;">Código Sagrado</a>
+        </div>
+        <div style="font-size: 0.75rem; opacity: 0.7;">© 2025 POMBAGIRAS.COM | Todas as encruzilhadas levam à luz que não cega. Laroyê! 🕯️</div>
+        <div style="margin-top: 0.8rem;"><span style="background:#b91c4c30; padding:4px 12px; border-radius:40px;">🌙 Conhecimento visceral & tecnologia de axé</span></div>
+    </footer>
+</div>
+
+<!-- MODAL para detalhes da Pombagira -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 id="modalTitle" class="serif-title" style="color:#ffb7c5;">Título</h3>
+        <div id="modalBody">
+            <p>Conteúdo detalhado da entidade.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --------------------------------------------------------------
+    // 24 POMBAGIRAS - Lista completa com imagens e ficha técnica
+    // JSON com os dados estruturados
+    // --------------------------------------------------------------
+    const pombasData = [
+        { nome: "Pombagira Cigana", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/cigana_1.png", fatos: "Força da liberdade, dança e sedução sagrada. Senhora dos ventos e caminhos.", avisos: "Respeite a liberdade alheia, jamais queira domesticá-la." },
+        { nome: "Pombagira da Figueira", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/da_figueira_1.png", fatos: "Cura feridas ancestrais, ligada às raízes profundas.", avisos: "Não manipule os frutos do destino sem merecimento." },
+        { nome: "Pombagira da Praia", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/da_praia_1.png", fatos: "Areia movediça e ondas que purificam.", avisos: "Evite vaidade excessiva; as marés são verdadeiras." },
+        { nome: "Dama da Noite", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/dama_da_noite_1.png", fatos: "Rituais lunares, mistérios da meia-noite.", avisos: "Não invoque sem proteção.”" },
+        { nome: "Maria Farrapo", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/maria_farrapo_1.png", fatos: "Restaura a humildade, quebra soberba.", avisos: "Reconheça seus trapos internos." },
+        { nome: "Maria Mulambo", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/maria_mulambo_1%20(1).png", fatos: "Senhora das almas marginalizadas, cura de rejeições.", avisos: "Não julgue pela aparência; ela é misericórdia." },
+        { nome: "Maria Navalha", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/maria_navalha_1.png", fatos: "Corta demandas, julga com lâmina de verdade.", avisos: "Cuidado com falsidade, ela corta sem dó." },
+        { nome: "Maria Padilha", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/maria_padilha_1.png", fatos: "Rainha das encruzilhadas, paixão e poder.", avisos: "Nunca peça por amarração sem justiça." },
+        { nome: "Maria Quitéria", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/maria_quiteria_1.png", fatos: "Guerreira das falanges, protege mulheres em luta.", avisos: "Coragem sem temor é seu chamado." },
+        { nome: "Menina (Pombagira Menina)", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/menina_1.png", fatos: "alegria, doçura e travessuras místicas.", avisos: "Não engane os puros de coração." },
+        { nome: "Rosa Caveira", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/rosa_caveira_1.png", fatos: "Conexão com a morte transformadora.", avisos: "A morte é parte do ciclo, não tema." },
+        { nome: "Sete Saias", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/sete_saias_1.png", fatos: "Sete véus de poder, dança cósmica.", avisos: "Respeito absoluto aos mistérios do feminino." },
+        { nome: "Pombagira da Lua", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/da_lua_1.png", fatos: "Intuição profunda, ciclos menstruais sagrados.", avisos: "Não ignore seus sonhos." },
+        { nome: "Pombagira da Serra", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/da_serra_1.png", fatos: "Altitude e visão espiritual elevada.", avisos: "Orgulho afasta sua energia." },
+        { nome: "Pombagira da Sombra", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/da_sombra_1.png", fatos: "Cura traumas ocultos, enfrenta medos.", avisos: "A luz nasce da escuridão." },
+        { nome: "Pombagira das Águas Profundas", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/das_aguas_profundas_1.png", fatos: "Emoções ocultas, memórias ancestrais.", avisos: "Não mexa com águas paradas sem axé." },
+        { nome: "Pombagira das Almas", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/das_almas_1.png", fatos: "Intermediação entre os mortos e vivos.", avisos: "Respeito aos antepassados." },
+        { nome: "Pombagira das Trevas", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/das_trevas_1.png", fatos: "Quebra de demandas pesadas, proteção noturna.", avisos: "Não tema o escuro, mas honre." },
+        { nome: "Pombagira do Fogo", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/do_fogo_1.png", fatos: "Paixão, transformação, fagulha divina.", avisos: "Controle seu temperamento." },
+        { nome: "Sete Encruzilhadas", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/sete_encruzilhadas_1.png", fatos: "Domínio sobre todas as direções e escolhas.", avisos: "Escolhas erradas podem ser desfeitas por ela com dor." },
+        { nome: "Pombagira da Fenda", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/da_fenda_1.png", fatos: "Rachaduras entre mundos, quebra de padrões.", avisos: "Não tente tapar a fenda sem propósito." },
+        { nome: "Pombagira da Calunga Profunda", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/da_calunga_profunda_1.png", fatos: "Mistérios oceânicos, portal além-vida.", avisos: "Calunga é respeito eterno." },
+        { nome: "Pombagira da Neblina", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/da_neblina_1.png", fatos: "Ilusão e revelação, retiros espirituais.", avisos: "Não se perca nas próprias sombras." },
+        { nome: "Pombagira das Correntes", img: "https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/das_correntes_1.png", fatos: "Libertação de vícios e amarras emocionais.", avisos: "Correntes invisíveis doem mais." }
+    ];
+    
+    // Renderizar dinamicamente os 24 cards
+    const gridContainer = document.getElementById("pombagirasGrid");
+    function renderCards() {
+        gridContainer.innerHTML = "";
+        pombasData.forEach((p, idx) => {
+            const card = document.createElement("div");
+            card.className = "pomba-card";
+            card.innerHTML = `
+                <img src="${p.img}" alt="${p.nome}" loading="lazy">
+                <div class="card-info">
+                    <h3>${p.nome}</h3>
+                    <button class="btn" data-idx="${idx}" style="margin-top: 8px;">Ficha Detalhada</button>
+                </div>
+            `;
+            gridContainer.appendChild(card);
+        });
+        // eventos de clique nos botões para abrir modal
+        document.querySelectorAll('.pomba-card .btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const idx = btn.getAttribute('data-idx');
+                const pomba = pombasData[idx];
+                document.getElementById("modalTitle").innerText = pomba.nome;
+                document.getElementById("modalBody").innerHTML = `
+                    <p><strong>🔮 Fatos históricos e espirituais:</strong> ${pomba.fatos}</p>
+                    <p><strong>⚠️ Avisos e cuidados:</strong> ${pomba.avisos}</p>
+                    <p><em>“Na encruzilhada da vida, ela equilibra justiça e amor.”</em></p>
+                    <hr><small>Imagem ancestral simbólica – respeite a tradição.</small>
+                `;
+                document.getElementById("modal").style.display = "flex";
+            });
+        });
+    }
+    
+    // FAQ dinâmico
+    const faqData = [
+        { q: "O que significa Pombagira na Umbanda?", a: "Entidade feminina de força, trabalha com descarrego, demandas afetivas, caminhos e justiça. É a guardiã das encruzilhadas sagradas." },
+        { q: "Pombagira é a mesma coisa que Exu?", a: "Sim, na Quimbanda são consideradas Exus femininos, com energia própria, mas complementar ao masculino." },
+        { q: "Posso cultuar Pombagira sem ser iniciado?", a: "Sim, com respeito, acender vela, fazer preces honestas e manter axé; mas jamais oferendas complexas sem orientação." },
+        { q: "Qual a diferença entre Maria Padilha e Maria Mulambo?", a: "Padilha é a rainha das pomba giras, ligada à sedução e poder; Mulambo cuida dos humilhados, justiça social e miséria." },
+    ];
+    const faqContainer = document.getElementById("faqContainer");
+    faqData.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "faq-item";
+        div.innerHTML = `<div class="faq-question">❓ ${item.q} <span>➕</span></div><div class="faq-answer" style="display:none;">${item.a}</div>`;
+        div.querySelector(".faq-question").addEventListener("click", () => {
+            const ans = div.querySelector(".faq-answer");
+            ans.style.display = ans.style.display === "none" ? "block" : "none";
+        });
+        faqContainer.appendChild(div);
+    });
+    
+    // GLOSSÁRIO SAGRADO
+    const glossaryTerms = [
+        { termo: "Axé", significado: "Energia vital, força sagrada, a luz que mantém o culto." },
+        { termo: "Exu Mirim", significado: "Exu criança, mensageiro veloz, ligado às brincadeiras mas também firmador de caminhos." },
+        { termo: "Quimbanda", significado: "Culto às almas e exus, linha mais voltada para a magia prática e demandas." },
+        { termo: "Encruzilhada", significado: "Portal energético onde pombagiras e exus atuam, encontro de forças." },
+        { termo: "Falange", significado: "Grupo de entidades que trabalham sob uma mesma regência espiritual." },
+        { termo: "Ponto Riscado", significado: "Assinatura energética da entidade, linguagem geométrica sagrada." },
+    ];
+    const glossaryDiv = document.getElementById("glossaryContainer");
+    glossaryTerms.forEach(g => {
+        const el = document.createElement("div");
+        el.className = "glossary-item";
+        el.innerHTML = `<strong>📖 ${g.termo}</strong><p>${g.significado}</p>`;
+        glossaryDiv.appendChild(el);
+    });
+    
+    // BIBLIOGRAFIA (livros, filmes, documentários)
+    const bibliografia = [
+        { tipo: "📘 Livro", nome: "Pombagira – A Face Feminina de Exu", autor: "Alexandre Cumino" },
+        { tipo: "📘 Livro", nome: "Umbanda: A Proto-síntese Cósmica", autor: "Rubens Saraceni" },
+        { tipo: "🎬 Filme", nome: "Encruzilhadas da Alma (Documentário)", desc: "Retrato de médiuns de pombagira." },
+        { tipo: "🎬 Documentário", nome: "O Feminino Sagrado na Umbanda", link: "disponível no Youtube." },
+        { tipo: "🎥 Filme", nome: "Besouro", desc: "Força ancestral e capoeira, menciona entidades." }
+    ];
+    const bibliografiaDiv = document.getElementById("bibliografiaContainer");
+    bibliografia.forEach(b => {
+        const el = document.createElement("div");
+        el.className = "bibliografia-item";
+        el.innerHTML = `<strong>${b.tipo}</strong> – ${b.nome} ${b.autor ? ' - '+b.autor : ''} ${b.desc ? '<br><i>'+b.desc+'</i>' : ''}`;
+        bibliografiaDiv.appendChild(el);
+    });
+    
+    // REDES SOCIAIS (ícones minimalistas)
+    const socialArray = [
+        { nome: "TikTok", url: "https://www.tiktok.com/@almasdepombagira?lang=pt-BR" }, { nome: "Instagram", url: "https://www.instagram.com/almasdepombagira/" },
+        { nome: "Threads", url: "https://www.threads.com/@almasdepombagira" }, { nome: "Kwai", url: "https://www.kwai.com/@AlexiaRosadeFogo" },
+        { nome: "Spotify", url: "https://open.spotify.com/show/0oeCL1QScD3v7dHeUvJjgJ" }, { nome: "Behance", url: "https://www.behance.net/alexiamelusine" },
+        { nome: "Substack", url: "https://substack.com/@alexiamelusine" }, { nome: "YouTube", url: "https://www.youtube.com/@almasdepombagira" },
+        { nome: "Telegram", url: "https://t.me/pomba_giras" }, { nome: "WhatsApp", url: "https://whatsapp.com/channel/0029VbBs2AnJkK7J9J0nLr2G" },
+        { nome: "Discord", url: "https://discord.gg/gWZP8R7Dqu" }, { nome: "BioSite", url: "https://bio.site/AlmasdePombagira" },
+        { nome: "Linktree", url: "https://linktr.ee/alexiarosadefogo" }, { nome: "Canva", url: "https://pombagiras.my.canva.site/" },
+        { nome: "GitHub", url: "https://github.com/pombagiras" }, { nome: "OrgulhoTrans", url: "https://github.com/Orgulho-Trans" },
+        { nome: "AlexiaLuz", url: "https://github.com/alexialuzdeferro" }
+    ];
+    const socialDiv = document.getElementById("socialLinks");
+    socialArray.forEach(s => {
+        const a = document.createElement("a");
+        a.href = s.url;
+        a.target = "_blank";
+        a.className = "social-icon";
+        a.innerText = s.nome;
+        socialDiv.appendChild(a);
+    });
+    
+    // modal close
+    const modal = document.getElementById("modal");
+    document.querySelector(".close-modal").onclick = () => modal.style.display = "none";
+    window.onclick = (e) => { if(e.target === modal) modal.style.display = "none"; };
+    
+    renderCards();
+</script>
+</body>
+</html>
